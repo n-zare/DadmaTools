@@ -273,9 +273,9 @@ def translate_short_sent(model,sent):
 def formalize(model, text):
     short_sents = split_by_verbs(model,text)
     origin_best = ''
-        for s_s in short_sents:
-            formal_s_s = translate_short_sent(model,s_s)
-            origin_best += (' ' + formal_s_s)
+    for s_s in short_sents:
+        formal_s_s = translate_short_sent(model,s_s)
+        origin_best += (' ' + formal_s_s)
     return origin_best
 
 if __name__ == '__main__':

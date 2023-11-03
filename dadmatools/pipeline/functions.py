@@ -4,7 +4,7 @@ from spacy.language import Language
 from spacy.tokens import Doc, Token, Span
 from spacy.pipeline import Sentencizer
 
-import dadmatool.models.formalizer as formalizer
+
 import dadmatools.models.tokenizer as tokenizer
 import dadmatools.models.lemmatizer as lemmatizer
 import dadmatools.models.postagger as tagger
