@@ -16,7 +16,8 @@ from dadmatools.models.formalize.postagger import Postagger
 from dadmatools.models.formalize.spellCheker import SpellChecker
 from dadmatools.models.formalize.tokenizer import InformalTokenizer
 
-base_addr = str(Path(__file__).parent.absolute()).replace('models', '')
+# base_addr = str(Path(__file__).parent.absolute()).replace('models', '')
+base_addr = os.path.dirname(__file__)
 H_MALFOOZ_ADDR = os.path.join(base_addr, 'files/h_malfouz_words500.txt')
 MAPPER_ADDR = os.path.join(base_addr, 'files/mapper.csv')
 HAZM_VOCAB_ADDR = os.path.join(base_addr, 'files/words.dat')
