@@ -13,7 +13,6 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/Dadmatech/DadmaTools",
     packages=setuptools.find_packages(),
-    include_package_data=True,
     install_requires=[
         "bpemb>=0.3.3",
         "nltk",
