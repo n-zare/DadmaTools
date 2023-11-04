@@ -3,8 +3,8 @@ from transformers import pipeline
 
 class NER:
     def __init__(self):
-        self.nlp = pipeline('ner', model="../common/bert-base-parsbert-ner-uncased",
-                       tokenizer="../common/bert-base-parsbert-ner-uncased")
+        self.nlp = pipeline('ner', model="HooshvareLab/bert-base-parsbert-ner-uncased",
+                       tokenizer="HooshvareLab/bert-base-parsbert-ner-uncased")
 
     def get_n_words(self, txt):
         results = self.nlp(txt)
