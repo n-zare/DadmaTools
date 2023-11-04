@@ -1,2 +1,1 @@
-include dadmatools/models/formalize/files/isolate_words dadmatools/models/formalize/files/tokenizer/informal_postfixs_freq
-recursive-include dadmatools/models/formalize/files *.json *.dat *.csv *.txt
+graft dir-pattern dadmatools/models/formalize
