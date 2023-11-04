@@ -179,7 +179,7 @@ def clean_text_for_lm(txt):
 
 
 def translate_short_sent(model,sent):
-    print(sent)
+    # print(sent)
     out_dict = {}
     txt = sent.strip()
     txt = re.sub('\s+', ' ', txt)
@@ -255,7 +255,7 @@ def translate_short_sent(model,sent):
                 cnd = {(tok, tok)}
             # outputs.append( (tok, cnd))
             candidates.append(cnd)
-        print(candidates)
+        # print(candidates)
         all_combinations = itertools.product(*candidates)
         all_combinations_list = list(all_combinations)
         for id, cnd in enumerate(all_combinations_list):
@@ -264,7 +264,7 @@ def translate_short_sent(model,sent):
             lemma_seq = clean_text_for_lm(lemma_seq)
             out_dict[id] = (normal_seq, lemma_seq)
         lemma_seqs = {id: out_dict[id][1] for id in out_dict}
-        print(lemma_seqs)
+        # print(lemma_seqs)
         current_best_id, current_ppl_score = model.lm.get_best_candidates(lemma_seqs)
         if current_ppl_score < min_ppl_score:
             best_id = current_best_id
@@ -281,8 +281,8 @@ def formalize(model, text):
         origin_best += (' ' + formal_s_s)
     return origin_best
 
-if __name__ == '__main__':
-    text = 'امروز میرم مدرسه'
-    model = Informal2Formal()
-    text = formalize(model,text)
-    print(text)
+# if __name__ == '__main__':
+#     text = 'امروز میرم مدرسه'
+#     model = Informal2Formal()
+#     text = formalize(model,text)
+#     print(text)
