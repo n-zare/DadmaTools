@@ -7,7 +7,7 @@ import pandas as pd
 from pathlib import Path
 
 from hazm import WordTokenizer, Normalizer
-import dadmatools.models.formalize.utils
+from dadmatools.models.formalize import utils
 from dadmatools.models.formalize.LMGP2 import GP2LM
 from dadmatools.models.formalize.NER import NER
 from dadmatools.models.formalize.OneShotTransformer import OneShotTransformer
