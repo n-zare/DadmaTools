@@ -37,8 +37,6 @@ setuptools.setup(
         "html2text",
         "tf-estimator-nightly==2.8.0.dev2021122109",
         "scikit-learn>=0.24.2",
-        "Keras==2.4.3",
-        "Keras-Preprocessing==1.1.0",
         "tokenizers",
         "hazm==0.7.0"
     ],
