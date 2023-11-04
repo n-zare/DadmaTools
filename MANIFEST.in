@@ -1,1 +1,3 @@
 include dadmatools/models/formalize/files/*
+include dadmatools/models/formalize/files/spell/*
+include dadmatools/models/formalize/files/tokenizer/*
