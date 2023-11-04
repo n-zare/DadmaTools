@@ -1,1 +1,1 @@
-graft dadmatools/models/formalize
+include dadmatools/models/formalize/files/*

@@ -13,6 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/Dadmatech/DadmaTools",
     packages=setuptools.find_packages(),
+    include_package_data=True,
     install_requires=[
         "bpemb>=0.3.3",
         "nltk",
@@ -36,6 +37,16 @@ setuptools.setup(
         "html2text",
         "tf-estimator-nightly==2.8.0.dev2021122109",
         "scikit-learn>=0.24.2",
+        "Keras==2.4.3",
+        "Keras-Preprocessing==1.1.0",
+        "numpy==1.16.4",
+        "pandas==0.24.2",
+        "pandas-datareader==0.8.1",
+        "stanza==1.1.1",
+        "transformers==4.1.1",
+        "tensorflow==2.2.0",
+        "tokenizers==0.9.4",
+        "hazm==0.7.0"
     ],
 
     classifiers=[
