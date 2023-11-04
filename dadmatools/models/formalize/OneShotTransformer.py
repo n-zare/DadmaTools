@@ -1,8 +1,8 @@
 import re
 import itertools
 import string
-import helper
-import utils
+from dadmatools.models.formalize import helper
+from dadmatools.models.formalize import utils
 
 
 class InformalWord:

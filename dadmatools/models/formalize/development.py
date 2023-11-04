@@ -5,22 +5,22 @@ import pickle
 import re
 import string
 from random import shuffle
-import utils
-from LMGP2 import GP2LM
-from NER import NER
-from OneShotTransformer import OneShotTransformer
-from VerbHandler import VerbHandler
 import pandas as pd
+from dadmatools.models.formalize import utils
+from dadmatools.models.formalize.LMGP2 import GP2LM
+from dadmatools.models.formalize.NER import NER
+from dadmatools.models.formalize.OneShotTransformer import OneShotTransformer
+from dadmatools.models.formalize.VerbHandler import VerbHandler
 from hazm import WordTokenizer, Normalizer
-from postagger import Postagger
-from spellCheker import SpellChecker
-from tokenizer import InformalTokenizer
+from dadmatools.models.formalize.postagger import Postagger
+from dadmatools.models.formalize.spellCheker import SpellChecker
+from dadmatools.models.formalize.tokenizer import InformalTokenizer
 from flask import Flask, request, Response
 from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS
 from flask import jsonify
 
-from utils import extract_non_convertable_words, create_bigram, create_ongram, create_vocab_file
+from dadmatools.models.formalize.utils import extract_non_convertable_words, create_bigram, create_ongram, create_vocab_file
 
 base_addr = os.path.dirname(__file__)
 H_MALFOOZ_ADDR = './files/h_malfouz_words500.txt'
