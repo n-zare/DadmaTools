@@ -39,7 +39,6 @@ setuptools.setup(
         "scikit-learn>=0.24.2",
         "Keras==2.4.3",
         "Keras-Preprocessing==1.1.0",
-        "tensorflow==2.2.0",
         "tokenizers==0.9.4",
         "hazm==0.7.0"
     ],
