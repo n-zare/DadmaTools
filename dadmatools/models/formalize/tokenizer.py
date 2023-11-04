@@ -1,7 +1,7 @@
 import pickle
 import itertools
 
-import utils
+from dadmatools.models.formalize import utils
 
 
 class InformalTokenizer:
