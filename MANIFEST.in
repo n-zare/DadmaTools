@@ -1,1 +1,2 @@
-include *.json *.dat *.csv *.txt isolate_words informal_postfixs_freq
+include dadmatools/models/formalize/files/isolate_words dadmatools/models/formalize/files/tokenizer/informal_postfixs_freq
+recursive-include dadmatools/models/formalize/files *.json *.dat *.csv *.txt
