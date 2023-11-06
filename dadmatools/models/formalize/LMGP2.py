@@ -13,8 +13,8 @@ class GP2LM:
         use_cuda = torch.cuda.is_available()
         self.device = torch.device("cuda" if use_cuda else "cpu")
         # self.device = torch.device("cpu")
-        self.tokenizer = AutoTokenizer.from_pretrained("bolbolzaban/gpt2-persian")
-        self.model = AutoModelWithLMHead.from_pretrained("bolbolzaban/gpt2-persian",gradient_checkpointing=True)
+        self.tokenizer = AutoTokenizer.from_pretrained("saved_models/parsbert/parsbert/")
+        self.model = AutoModelWithLMHead.from_pretrained("saved_models/parsbert/parsbert/",gradient_checkpointing=True)
         self.model = self.model.to(self.device)
         self.MAX_LEN = 15
         self.MAX_BATCH_SIZE = 64
