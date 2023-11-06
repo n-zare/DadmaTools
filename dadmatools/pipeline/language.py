@@ -18,6 +18,7 @@ import dadmatools.models.ner as ner
 import dadmatools.models.chunker as chunker
 import dadmatools.models.kasreh as kasreh
 import dadmatools.models.spellchecker as spellchecker
+import dadmatools.models.formalizer as formalizer
 
 
 class NLP():
@@ -36,6 +37,7 @@ class NLP():
     ner_model = None
     kasreh_model = None
     spellchecker_model = None
+    formalizer_model = None
 
     Token.set_extension("dep_arc", default=None)
     Doc.set_extension("sentences", default=None)
@@ -44,6 +46,7 @@ class NLP():
     Doc.set_extension("ners", default=None)
     Doc.set_extension("kasreh_ezafe", default=None)
     Doc.set_extension("spellchecker", default=None)
+    Doc.set_extension("formalizer", default=None)
 
     global nlp
     nlp = None
@@ -54,7 +57,7 @@ class NLP():
         nlp = spacy.blank(lang)
         self.nlp = nlp
         
-        self.dict = {'tok':'tokenizer', 'lem':'lemmatize', 'pos':'postagger', 'dep':'dependancyparser', 'cons':'constituencyparser'}
+        self.dict = {'tok':'tokenizer', 'lem':'lemmatize', 'pos':'postagger', 'dep':'dependancyparser', 'cons':'constituencyparser', 'formal':'formalizer'}
         self.pipelines = pipelines.split(',')
         
         # if 'def-norm' in pipelines:
@@ -94,7 +97,7 @@ class NLP():
             consparser_model = conspars.load_model()
             self.nlp.add_pipe('constituencyparser')
         
-        if 'ner' in pipelines:
+        if ('ner' or 'formal') in pipelines:
             global ner_model
             ner_model = ner.load_model()
             self.nlp.add_pipe('ners')
@@ -108,6 +111,11 @@ class NLP():
             global spellchecker_model
             spellchecker_model = spellchecker.load_model()
             self.nlp.add_pipe('spellchecker')
+
+        if 'formal' in pipelines:
+            global formalizer_model
+            formalizer_model = formalizer.load_model()
+            self.nlp.add_pipe('formalizer')
     
     # @Language.component('normalizer')
     # def tokenizer(doc):
@@ -245,7 +253,7 @@ class NLP():
         return doc
 
     @Language.component('spellchecker')
-    def kasrehezafe(doc):
+    def spellchecker(doc):
         model = spellchecker_model
 
         spell_output = []
@@ -254,6 +262,19 @@ class NLP():
             spell_output.append(spellchecker.spellchecker(model, sent.text))
 
         doc._.spellchecker = spell_output
+
+        return doc
+    
+    @Language.component('formalizer')
+    def formalizer(doc):
+        model = formalizer_model
+
+        formalized_output = []
+        for sent in doc._.sentences:
+            ## getting the IOB tags of the sentence
+            formalized_output.append(formalizer.formalize(model, sent.text))
+
+        doc._.formalizer = formalized_output
 
         return doc
 
